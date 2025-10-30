@@ -1,4 +1,5 @@
-
+package game.characters.skills;
+import java.util.*;
 
 public class Skill {
     private String name;

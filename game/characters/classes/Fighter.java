@@ -1,25 +1,24 @@
-
+package game.characters.classes;
 import java.util.*;
 
-public class Barbarian implements characterClass {
+public class Fighter implements characterClass {
     @Override public ArrayList<String> setSkillProf(){
         ArrayList<String> res = new ArrayList<>();
-        ArrayList<String> skillsArrayList = new ArrayList<>();
-        skillsArrayList.add("animal handling");
-        skillsArrayList.add("athletics");
-        skillsArrayList.add("intimidation");
-        skillsArrayList.add("nature");
-        skillsArrayList.add("perception");
-        skillsArrayList.add("survival");
+        ArrayList<String> proficiencyArrayList = new ArrayList<>();
+        proficiencyArrayList.add("animal handling");
+        proficiencyArrayList.add("athletics");
+        proficiencyArrayList.add("intimidation");
+        proficiencyArrayList.add("nature");
+        proficiencyArrayList.add("perception");
+        proficiencyArrayList.add("survival");
         
         try (Scanner s = new Scanner(System.in)) {
             int i = 0;
             while(i < 2){
-                System.out.printf("Pick a skill (%d of 2): %s\n", i+1, skillsArrayList);
+                System.out.printf("Pick a proficiency (%d of 2): %s\n", i+1, proficiencyArrayList);
                 String userInput = s.nextLine().toLowerCase();
-                if(!skillsArrayList.contains(userInput)){
-                    System.out.println("Not a valid skill");
-                    continue;
+                if(!proficiencyArrayList.contains(userInput)){
+                    System.out.println("Not a valid proficiency");
                 }
                 i++;
             }
