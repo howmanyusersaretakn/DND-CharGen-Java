@@ -1,4 +1,4 @@
-package dndEncounterSim;
+
 
 public class Skill {
     private String name;

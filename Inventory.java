@@ -1,4 +1,4 @@
-package dndEncounterSim;
+
 import java.util.*;
 
 class Item {

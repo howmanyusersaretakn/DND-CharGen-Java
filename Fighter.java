@@ -1,4 +1,4 @@
-package dndEncounterSim;
+
 import java.util.*;
 
 public class Fighter implements characterClass {
