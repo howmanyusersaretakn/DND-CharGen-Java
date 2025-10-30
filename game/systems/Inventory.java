@@ -1,7 +1,7 @@
 package game.systems;
 
 import game.items.Item;
-import java.util.ArrayList;
+import java.util.*;
 
 public class Inventory {
 
