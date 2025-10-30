@@ -1,4 +1,8 @@
+package game;
 
+import game.characters.*;
+import game.items.*;
+import game.systems.*;
 import java.util.*;
 
 public class Main {
@@ -21,7 +25,7 @@ public class Main {
         String[] speciesList = {""};
         try (Scanner s = new Scanner(System.in)) {
             for(int i = 0; i < numChar; i++){
-                list[i] = new playerCharacter();
+                list[i] = new PlayerCharacter();
                 System.out.printf("-----Character %d-----", i);
                 System.out.println("Set Character Name: ");
                 String nameString = s.nextLine();
@@ -63,7 +67,7 @@ public class Main {
         try (Scanner s = new Scanner(System.in)) {
             System.out.println("How many characters are we creating?\n");
             int numCharacters = s.nextInt();
-            playerCharacter[] playerList = new playerCharacter[numCharacters];
+            PlayerCharacter[] playerList = new PlayerCharacter[numCharacters];
             createCharacterList(playerList, numCharacters);
         }
     }

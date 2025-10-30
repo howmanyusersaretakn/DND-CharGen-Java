@@ -1,6 +1,6 @@
 package game.systems;
 
-import game.items.Item;
+import game.items.*;
 import java.util.*;
 
 public class Inventory {

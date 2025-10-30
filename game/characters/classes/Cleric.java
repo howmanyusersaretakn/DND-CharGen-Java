@@ -4,20 +4,20 @@ import java.util.*;
 public class Cleric implements characterClass {
     @Override public ArrayList<String> setSkillProf(){
         ArrayList<String> res = new ArrayList<>();
-        ArrayList<String> proficiencyArrayList = new ArrayList<>();
-        proficiencyArrayList.add("animal handling");
-        proficiencyArrayList.add("athletics");
-        proficiencyArrayList.add("intimidation");
-        proficiencyArrayList.add("nature");
-        proficiencyArrayList.add("perception");
-        proficiencyArrayList.add("survival");
+        ArrayList<String> classProficiencyArrayList = new ArrayList<>();
+        classProficiencyArrayList.add("animal handling");
+        classProficiencyArrayList.add("athletics");
+        classProficiencyArrayList.add("intimidation");
+        classProficiencyArrayList.add("nature");
+        classProficiencyArrayList.add("perception");
+        classProficiencyArrayList.add("survival");
         
         try (Scanner s = new Scanner(System.in)) {
             int i = 0;
             while(i < 2){
-                System.out.printf("Pick a proficiency (%d of 2): %s\n", i+1, proficiencyArrayList);
+                System.out.printf("Pick a proficiency (%d of 2): %s\n", i+1, classProficiencyArrayList);
                 String userInput = s.nextLine().toLowerCase();
-                if(!proficiencyArrayList.contains(userInput)){
+                if(!classProficiencyArrayList.contains(userInput)){
                     System.out.println("Not a valid proficiency");
                 }
                 i++;

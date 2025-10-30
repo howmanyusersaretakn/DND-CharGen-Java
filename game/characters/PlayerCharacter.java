@@ -112,17 +112,17 @@ public class playerCharacter {
     public void setClass(String className){
         switch(className.toLowerCase()){
             case "barbarian" -> this.charClass = new Barbarian();
-            // case "bard" -> this.charClass = new Bard();
-            // case "cleric" -> this.charClass = new Cleric();
-            // case "druid" -> this.charClass = new Druid();
-            // case "fighter" -> this.charClass = new Fighter();
-            // case "monk" -> this.charClass = new Monk();
-            // case "paladin" -> this.charClass = new Paladin();
-            // case "ranger" -> this.charClass = new Ranger();
-            // case "rogue" -> this.charClass = new Rogue();
-            // case "sorceror" -> this.charClass = new Sorceror();
-            // case "warlock" -> this.charClass = new Warlock();
-            // case "wizard" -> this.charClass = new Wizard();
+            case "bard" -> this.charClass = new Bard();
+            case "cleric" -> this.charClass = new Cleric();
+            case "druid" -> this.charClass = new Druid();
+            case "fighter" -> this.charClass = new Fighter();
+            case "monk" -> this.charClass = new Monk();
+            case "paladin" -> this.charClass = new Paladin();
+            case "ranger" -> this.charClass = new Ranger();
+            case "rogue" -> this.charClass = new Rogue();
+            case "sorceror" -> this.charClass = new Sorceror();
+            case "warlock" -> this.charClass = new Warlock();
+            case "wizard" -> this.charClass = new Wizard();
             default -> System.out.println("invalid class");
         }
     }
