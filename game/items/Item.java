@@ -2,7 +2,7 @@ package game.items;
 
 public class Item {
     private String name;
-    private String type;
+    final String type;
     private int count;
 
     public Item(){

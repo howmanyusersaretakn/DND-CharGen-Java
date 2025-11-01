@@ -1,12 +1,13 @@
 package game.systems;
 
 import game.items.*;
+
 import java.util.*;
 
 public class Inventory {
 
     // Store any subclass of Item
-    private final ArrayList<Item> invList = new ArrayList<>();
+    private final ArrayList<item> invList = new ArrayList<>();
 
     public Inventory() {
         // No need to add null
@@ -15,7 +16,7 @@ public class Inventory {
     // Check if an item exists; returns index or -1
     public int itemExists(String itemName) {
         for (int i = 0; i < invList.size(); i++) {
-            Item invItem = invList.get(i);
+            item invItem = invList.get(i);
             if (invItem != null && invItem.getName().equals(itemName)) {
                 return i;
             }
@@ -24,7 +25,7 @@ public class Inventory {
     }
 
     // Add any Item (or subclass) to inventory
-    public void addItem(Item item) {
+    public void addItem(item item) {
         int targetIndex = itemExists(item.getName());
         if (targetIndex == -1) {
             invList.add(item);
@@ -45,7 +46,7 @@ public class Inventory {
             return;
         }
 
-        Item targetItem = invList.get(targetIndex);
+        item targetItem = invList.get(targetIndex);
         int newCount = targetItem.getCount() - countToRemove;
 
         if (newCount > 0) {
@@ -58,16 +59,18 @@ public class Inventory {
     }
 
     // Print inventory contents
-    public void printContents() {
+    public String printContents() {
         if (invList.isEmpty()) {
-            System.out.println("Inventory is empty.");
-            return;
+            return "Inventory is Empty";
         }
 
-        System.out.println("Inventory contents:");
-        for (Item item : invList) {
-            System.out.printf("- %s x%d%n", item.getName(), item.getCount());
-        }
+        StringBuilder sb = new StringBuilder();
+        sb.append("Inventory contents:\n");
+        for (item item : invList) {
+            sb.append(String.format("- %s x%d%n", item.getName(), item.getCount()));
+        }   
+
+        return sb.toString();
     }
 
     // Get information on a specific item
@@ -81,25 +84,25 @@ public class Inventory {
         System.out.println(invList.get(targetIndex));
     }
 
-    // Testing section
-    public static void main(String[] args) {
-        Inventory inv = new Inventory();
+    // // Testing section
+    // public static void main(String[] args) {
+    //     Inventory inv = new Inventory();
 
-        // Example items (assume constructors exist)
-        // Weapon(String name, int damage, int count)
-        Weapon sword = new Weapon("Sword", 10, 2);
-        Potion potion = new Potion("Potion", 5);
+    //     // Example items (assume constructors exist)
+    //     // Weapon(String name, int damage, int count)
+    //     Weapon sword = new Weapon("Sword", 10, 2);
+    //     Potion potion = new Potion("Potion", 5);
 
-        inv.addItem(sword);
-        inv.addItem(potion);
+    //     inv.addItem(sword);
+    //     inv.addItem(potion);
 
-        inv.printContents();
+    //     inv.printContents();
 
-        inv.removeItem("Potion", 2);
-        inv.removeItem("Sword", 1);
+    //     inv.removeItem("Potion", 2);
+    //     inv.removeItem("Sword", 1);
 
-        inv.printContents();
+    //     inv.printContents();
 
-        inv.getItemInfo("Sword");
-    }
+    //     inv.getItemInfo("Sword");
+    // }
 }
