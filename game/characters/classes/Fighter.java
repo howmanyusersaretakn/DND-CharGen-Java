@@ -57,22 +57,15 @@ public class Fighter implements CharacterClass {
         return 12;
     }
     @Override public ArrayList<String> getSavingThrowProf(){
-        ArrayList<String> res = new ArrayList<>();
-        res.add("Strength");
-        res.add("Constitution");
+        ArrayList<String> res = new ArrayList<>(Arrays.asList(""));
         return res;
     }
     @Override public ArrayList<String> getWeaponProf(){
-        ArrayList<String> res = new ArrayList<>();
-        res.add("Simple");
-        res.add("Martial");
+        ArrayList<String> res = new ArrayList<>(Arrays.asList(""));
         return res;
     }
     @Override public ArrayList<String> getArmorProf(){
-        ArrayList<String> res = new ArrayList<>();
-        res.add("Light");
-        res.add("Medium");
-        res.add("Shields");
+       ArrayList<String> res = new ArrayList<>(Arrays.asList(""));
         return res;
     }
 }
