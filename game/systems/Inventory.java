@@ -7,16 +7,16 @@ import java.util.*;
 public class Inventory {
 
     // Store any subclass of Item
-    private final ArrayList<item> invList = new ArrayList<>();
+    private final ArrayList<Item> invList = new ArrayList<>();
 
     public Inventory() {
         // No need to add null
     }
 
-    // Check if an item exists; returns index or -1
+    // Check if an Item exists; returns index or -1
     public int itemExists(String itemName) {
         for (int i = 0; i < invList.size(); i++) {
-            item invItem = invList.get(i);
+            Item invItem = invList.get(i);
             if (invItem != null && invItem.getName().equals(itemName)) {
                 return i;
             }
@@ -25,15 +25,15 @@ public class Inventory {
     }
 
     // Add any Item (or subclass) to inventory
-    public void addItem(item item) {
-        int targetIndex = itemExists(item.getName());
+    public void addItem(Item Item) {
+        int targetIndex = itemExists(Item.getName());
         if (targetIndex == -1) {
-            invList.add(item);
-            System.out.printf("Added %d of %s.%n", item.getCount(), item.getName());
+            invList.add(Item);
+            System.out.printf("Added %d of %s.%n", Item.getCount(), Item.getName());
         } else {
-            invList.get(targetIndex).modifyCount(item.getCount());
+            invList.get(targetIndex).modifyCount(Item.getCount());
             System.out.printf("Increased %s count by %d. New count: %d%n",
-                    item.getName(), item.getCount(), invList.get(targetIndex).getCount());
+                    Item.getName(), Item.getCount(), invList.get(targetIndex).getCount());
         }
     }
 
@@ -46,7 +46,7 @@ public class Inventory {
             return;
         }
 
-        item targetItem = invList.get(targetIndex);
+        Item targetItem = invList.get(targetIndex);
         int newCount = targetItem.getCount() - countToRemove;
 
         if (newCount > 0) {
@@ -66,14 +66,14 @@ public class Inventory {
 
         StringBuilder sb = new StringBuilder();
         sb.append("Inventory contents:\n");
-        for (item item : invList) {
-            sb.append(String.format("- %s x%d%n", item.getName(), item.getCount()));
+        for (Item Item : invList) {
+            sb.append(String.format("- %s x%d%n", Item.getName(), Item.getCount()));
         }   
 
         return sb.toString();
     }
 
-    // Get information on a specific item
+    // Get information on a specific Item
     public void getItemInfo(String itemName) {
         int targetIndex = itemExists(itemName);
         if (targetIndex == -1) {
