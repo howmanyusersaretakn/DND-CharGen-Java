@@ -8,11 +8,11 @@ public class Bard implements CharacterClass {
     @Override public ArrayList<String> setSkillProf() {
         ArrayList<String> res = new ArrayList<>();
         ArrayList<String> classProficiencyArrayList = new ArrayList<>(Arrays.asList(
-            "acrobatics", "animal handling", "arcana", "athletics",
-            "deception", "history", "insight", "intimidation",
-            "investigation", "medicine", "nature", "perception",
-            "performance", "persuasion", "religion",
-            "sleight of hand", "survival"
+            "Acrobatics", "Animal Handling", "Arcana", "Athletics",
+            "Deception", "History", "Insight", "Intimidation",
+            "Investigation", "Medicine", "Nature", "Perception",
+            "Performance", "Persuasion", "Religion",
+            "Sleight of Hand", "Survival"
         ));
 
         try (Scanner s = new Scanner(System.in)) {
@@ -21,14 +21,14 @@ public class Bard implements CharacterClass {
             while (i < 3) {
                 System.out.println("\nAvailable proficiencies:");
                 for (int j = 0; j < classProficiencyArrayList.size(); j++) {
-                    System.out.printf("[%d] %s\n", j, classProficiencyArrayList.get(j));
+                    System.out.printf("[%d] %s\n", j + 1, classProficiencyArrayList.get(j));
                 }
                 
                 System.out.printf("Pick a proficiency (%d of 3): ", i + 1);
                 int userInput;
                 
                 try {
-                    userInput = s.nextInt();
+                    userInput = s.nextInt() - 1;
                 } catch (Exception e) {
                     System.out.println("Please enter a valid number.");
                     s.nextLine(); // clear invalid input
@@ -55,22 +55,23 @@ public class Bard implements CharacterClass {
     @Override public String getClassName(){
         return "Bard";
     }
-    @Override public String getPrimaryAbility(){
-        return "Strength";
+    @Override public ArrayList<String> getPrimaryAbility(){
+        ArrayList<String> res = new ArrayList<>(Arrays.asList("Charisma"));
+        return res;
     }
     @Override public int getHitDieType(){
-        return 12;
+        return 8;
     }
     @Override public ArrayList<String> getSavingThrowProf(){
-        ArrayList<String> res = new ArrayList<>(Arrays.asList(""));
+        ArrayList<String> res = new ArrayList<>(Arrays.asList("Dexterity", "Charisma"));
         return res;
     }
     @Override public ArrayList<String> getWeaponProf(){
-        ArrayList<String> res = new ArrayList<>(Arrays.asList(""));
+        ArrayList<String> res = new ArrayList<>(Arrays.asList("Simple"));
         return res;
     }
     @Override public ArrayList<String> getArmorProf(){
-        ArrayList<String> res = new ArrayList<>(Arrays.asList(""));
+        ArrayList<String> res = new ArrayList<>(Arrays.asList("Light"));
         return res;
     }
 }

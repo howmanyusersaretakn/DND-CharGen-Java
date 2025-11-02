@@ -65,11 +65,10 @@ public class Inventory {
         }
 
         StringBuilder sb = new StringBuilder();
-        sb.append("Inventory contents:\n");
         for (Item Item : invList) {
             sb.append(String.format("- %s x%d%n", Item.getName(), Item.getCount()));
         }   
-
+        
         return sb.toString();
     }
 

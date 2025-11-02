@@ -107,7 +107,7 @@ public class PlayerCharacter {
         }
     }
 
-    public void speciesSelect(){
+    public void setBackground(){
         Scanner s = new Scanner(System.in);
         System.out.println("Pick a species");
     }

@@ -8,7 +8,7 @@ public class Sorceror implements CharacterClass {
     @Override public ArrayList<String> setSkillProf(){
         ArrayList<String> res = new ArrayList<>();
         ArrayList<String> classProficiencyArrayList = new ArrayList<>(Arrays.asList(
-        "animal handling", "athletics", "intimidation", "nature", "perception", "survival"
+        "Arcana", "Deception", "Insight", "Intimidation", "Persuasion", "Religion"
         )); 
         
         try (Scanner s = new Scanner(System.in)) {
@@ -17,14 +17,14 @@ public class Sorceror implements CharacterClass {
             while (i < 2) {
                 System.out.println("\nAvailable proficiencies:");
                 for (int j = 0; j < classProficiencyArrayList.size(); j++) {
-                    System.out.printf("[%d] %s\n", j, classProficiencyArrayList.get(j));
+                    System.out.printf("[%d] %s\n", j + 1, classProficiencyArrayList.get(j));
                 }
                 
                 System.out.printf("Pick a proficiency (%d of 2): ", i + 1);
                 int userInput;
                 
                 try {
-                    userInput = s.nextInt();
+                    userInput = s.nextInt() - 1;
                 } catch (Exception e) {
                     System.out.println("Please enter a valid number.");
                     s.nextLine();
@@ -48,24 +48,25 @@ public class Sorceror implements CharacterClass {
     }
     
     @Override public String getClassName(){
-        return "Barbarian";
+        return "Sorceror";
     }
-    @Override public String getPrimaryAbility(){
-        return "Strength";
+    @Override public ArrayList<String> getPrimaryAbility(){
+        ArrayList<String> res = new ArrayList<>(Arrays.asList("Charisma"));
+        return res;
     }
     @Override public int getHitDieType(){
-        return 12;
+        return 6;
     }
     @Override public ArrayList<String> getSavingThrowProf(){
-        ArrayList<String> res = new ArrayList<>(Arrays.asList(""));
+        ArrayList<String> res = new ArrayList<>(Arrays.asList("Constitution", "Charisma"));
         return res;
     }
     @Override public ArrayList<String> getWeaponProf(){
-        ArrayList<String> res = new ArrayList<>(Arrays.asList(""));
+        ArrayList<String> res = new ArrayList<>(Arrays.asList("Simple"));
         return res;
     }
     @Override public ArrayList<String> getArmorProf(){
-       ArrayList<String> res = new ArrayList<>(Arrays.asList(""));
+       ArrayList<String> res = new ArrayList<>(Arrays.asList("None"));
         return res;
     }
 }

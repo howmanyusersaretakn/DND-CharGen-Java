@@ -3,7 +3,7 @@ import java.util.*;
 
 public interface CharacterClass {
     String getClassName();
-    String getPrimaryAbility();
+    ArrayList<String> getPrimaryAbility();
     int getHitDieType();
     ArrayList<String> getSavingThrowProf();
     ArrayList<String> setSkillProf();
