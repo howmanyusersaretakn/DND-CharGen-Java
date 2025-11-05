@@ -5,12 +5,6 @@ public class Item {
     final String type;
     private int count;
 
-    public Item(){
-        this.name = "";
-        this.type = "";
-        this.count = 0;
-    }
-
     public Item(String itemName, String itemType, int itemCount){
         this.name = itemName;
         this.type = itemType;

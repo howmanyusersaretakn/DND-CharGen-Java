@@ -4,15 +4,16 @@ import java.util.*;
 import game.items.Item;
 
 public class meleeWeapon extends Item {
-    private String damageType;
-    private int damageDice; //we're assuming that any given weapon has a singular dice roll for damage
+    final String damageType;
+    final int damageDice; //we're assuming that any given weapon has a singular dice roll for damage
     final String category;
-    private List<String> properties;
+    final List<String> properties;
     private boolean masteryBool;
     private String masteryEffect;
-    private List<String> miscEffects;
+    private List<String> effects;
+    private boolean equipped;
 
-    public meleeWeapon(String name, String damageType, int damageDice, int count, String category, String[] properties, String masteryEffect, String[] miscEffects){
+    public meleeWeapon(String name, String damageType, int damageDice, int count, String category, String masteryEffect, String[] properties, String[] effects){
         super(name, "Weapon", count);
         this.damageType = damageType;
         this.damageDice = damageDice;
@@ -20,15 +21,31 @@ public class meleeWeapon extends Item {
         this.properties = new ArrayList<>(Arrays.asList(properties));
         this.masteryBool = false;
         this.masteryEffect = masteryEffect;
-        this.miscEffects = new ArrayList<>(Arrays.asList(miscEffects));
+        this.effects = new ArrayList<>(Arrays.asList(effects));
+        this.equipped = false;
     }
+
+    public void addEffect(String effect){
+        this.effects.add(effect);
+    }
+    public void addMasteryEffect(){
+        if(this.masteryBool == true) this.effects.add()
+    }
+    public void setEquipStatus(){
+        this.equipped = (this.equipped == false);
+    }
+    public void setMasteryStatus(){
+        this.masteryBool = (this.masteryBool == false);
+    }
+
+    public String 
 
     @Override 
     public String toString(){
         return String.format(
             "Name: %s | Category: %s | Damage: 1d%d %s | Properties: [%s] | Mastery Properties: %s[%s] | Applied Effects: %s\n", 
             super.getName(), this.category, this.damageDice, this.damageType, String.join(",", this.properties), this.masteryEffect, (this.masteryBool == true) ? "Applied" : "Not Applied", 
-            String.join(",", this.miscEffects)
+            String.join(",", this.effects)
         );
     }
 

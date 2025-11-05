@@ -1,7 +1,7 @@
 package game.characters.players;
 
+import game.characters.players.classes.*;
 import game.systems.*;
-import game.characters.classes.*;
 import java.util.*;
 
 public class PlayerCharacter {
@@ -9,15 +9,14 @@ public class PlayerCharacter {
     private String bkgrnd; //impacts certain stats
     private String species; //impacts certain stats and languages
     private int lvl;
-    private int hp;
     private int xp;
-    private int armorClass;
+    private int hp;
+    private String size;
     private CharacterClass charClass;
 
     final Inventory inv;
     final ArrayList<String> languages;
-    final ArrayList<String> skills;
-    final ArrayList<String> traits;
+    final ArrayList<> traits;
 
     private int strScore;
     private int intlScore;
@@ -31,9 +30,9 @@ public class PlayerCharacter {
         this.bkgrnd = "";
         this.species = "";
         this.lvl = 1;
-        this.hp = 0;
         this.xp = 0;
-        this.armorClass = 0;
+        this.hp = 0;
+        this.size = "";
         this.charClass = null;
         this.strScore = 0;
         this.intlScore = 0;
@@ -43,7 +42,6 @@ public class PlayerCharacter {
         this.chariScore = 0;
         this.inv = new Inventory();
         this.languages = new ArrayList<>();
-        this.skills = new ArrayList<>();
         this.traits = new ArrayList<>();
     }
 
@@ -84,10 +82,6 @@ public class PlayerCharacter {
         return this.charClass;
     }
 
-    public ArrayList<String> getSkills(){
-        return this.skills;
-    }
-
     public void printAllInfo(){
         System.out.printf("-----Basic info-----\nName: %s\nClass: %s\nBackground: %s\nSpecies: %s\nLevel: %d\nCurrent XP: %d\nArmor Class: %d", this.name, this.charClass.getClassName(), this.bkgrnd, this.species, this.lvl, this.xp, this.armorClass);
     }
@@ -107,33 +101,27 @@ public class PlayerCharacter {
         }
     }
 
-    public void setBackground(){
-        Scanner s = new Scanner(System.in);
-        System.out.println("Pick a species");
-    }
-
-    public void setClass(String className){
-        switch(className.toLowerCase()){
-            case "barbarian" -> this.charClass = new Barbarian();
-            case "bard" -> this.charClass = new Bard();
-            case "cleric" -> this.charClass = new Cleric();
-            case "druid" -> this.charClass = new Druid();
-            case "fighter" -> this.charClass = new Fighter();
-            case "monk" -> this.charClass = new Monk();
-            case "paladin" -> this.charClass = new Paladin();
-            case "ranger" -> this.charClass = new Ranger();
-            case "rogue" -> this.charClass = new Rogue();
-            case "sorceror" -> this.charClass = new Sorceror();
-            case "warlock" -> this.charClass = new Warlock();
-            case "wizard" -> this.charClass = new Wizard();
+    public void setClass(int classChoice, int speciesChoice, int characterBackground){
+        switch(classChoice){
+            case 1 -> this.charClass = new Barbarian();
+            case 2 -> this.charClass = new Bard();
+            case 3 -> this.charClass = new Cleric();
+            case 4 -> this.charClass = new Druid();
+            case 5 -> this.charClass = new Fighter();
+            case 6 -> this.charClass = new Monk();
+            case 7 -> this.charClass = new Paladin();
+            case 8 -> this.charClass = new Ranger();
+            case 9 -> this.charClass = new Rogue();
+            case 10 -> this.charClass = new Sorceror();
+            case 11 -> this.charClass = new Warlock();
+            case 12 -> this.charClass = new Wizard();
             default -> System.out.println("invalid class");
         }
-    }
-
-    public void setNonChangingInfo(String name, String bkgrnd, String species){
-        this.name = name;
-        this.bkgrnd = bkgrnd;
-        this.species = species;
+        switch(speciesChoice){
+            case 1:
+                this.species = "Aasmir";
+                this.traits.add("")
+        }
     }
 
     public void setXp(int xp){
@@ -154,10 +142,5 @@ public class PlayerCharacter {
 
     public void addLanguages(String language){
         this.languages.add(language);
-    }
-
-    public void addSkills(String skillName){
-        this.skills.add(skillName);
-        
     }
 }

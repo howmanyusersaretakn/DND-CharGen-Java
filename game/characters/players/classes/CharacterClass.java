@@ -1,4 +1,4 @@
-package game.characters.players;
+package game.characters.players.classes;
 import java.util.*;
 
 public interface CharacterClass {
